@@ -1,7 +1,10 @@
+import Header from './components/Header';
+
 function App() {
   return (
     <>
-      <div>Hellow Whirled</div>
+      <Header />
+      <div className="text-4xl">BASSBOOK</div>
     </>
   );
 }
