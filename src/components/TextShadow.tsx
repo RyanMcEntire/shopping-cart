@@ -8,7 +8,11 @@ const longShadow = (color: string) => {
   return val;
 };
 
-const TextShadow = ({ letter, shadowColor }) => {
+type TextShadowProps = {
+  letter: string;
+  shadowColor: string;
+};
+const TextShadow: React.FC<TextShadowProps> = ({ letter, shadowColor }) => {
   const style = {
     textShadow: longShadow(shadowColor),
   };

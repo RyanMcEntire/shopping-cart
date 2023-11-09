@@ -1,0 +1,15 @@
+export const color = {
+  bubblegumPink: '#FF89D3',
+  mediumGreen: '#6ADB6B',
+  lightGreen: '#78EB9D',
+  waterBlue: '#36B3E8',
+  lilac: '#C38EFA',
+  paleMauve: '#FDC5FA',
+  butterscotch: '#FBBA57',
+  aquaBlue: '#27D7E7',
+  darkOrange: '#F76E35',
+  offYellow: '#FBF845',
+  redPink: '#EC1D51',
+  strawberry: '#FF2745',
+  cream: '#FEFBEA',
+};
