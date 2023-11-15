@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
 
-      <div className="text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl text-center mt-14 font-orbitron text-cream">
+      <div title='BASSBOOK ' className="text-6xl md:text-7xl lg:text-7xl xl:text-8xl text-center mt-11 font-orbitron text-cream">
         <TextShadow letter="B" shadowColor={color.bubblegumPink} />
         <TextShadow letter="A" shadowColor={color.lightGreen} />
         <TextShadow letter="S" shadowColor={color.aquaBlue} />
