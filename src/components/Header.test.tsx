@@ -20,7 +20,7 @@ describe('Header component', () => {
     expect(screen.getByTitle('BASSBOOK')).toBeInTheDocument();
   });
 
-  it('navigates to About when you click ABOUT', async () => {
+  it('navigates to About when you click SHOP', async () => {
     render(
       <MemoryRouter>
         <App />
@@ -28,11 +28,11 @@ describe('Header component', () => {
     );
     const user = userEvent.setup();
   
-    const aboutButton = screen.getByRole('link', { name: 'ABOUT' });
+    const aboutButton = screen.getByRole('link', { name: 'SHOP' });
 
     await user.click(aboutButton);
 
-    expect(screen.getByText(/About/i)).toBeInTheDocument();
+    expect(screen.getByText(/Shop/i)).toBeInTheDocument();
     screen.debug();
   });
 });

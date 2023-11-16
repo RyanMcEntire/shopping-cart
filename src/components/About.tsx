@@ -1,18 +1,17 @@
 import Header from './Header';
 
-const About = () => {
+const Shop = () => {
   return (
     <>
       <Header />
       <div>
-        <h1>About</h1>
+        <h1>Shop</h1>
         <p>
-          This is a light-hearted tribute to a fun genre of music. Kawaii Future
-          Bass!
+          This is a placeholder for the shop page.
         </p>
       </div>
     </>
   );
 };
 
-export default About;
+export default Shop;
