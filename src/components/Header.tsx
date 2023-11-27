@@ -11,7 +11,7 @@ const Header = () => {
         </Link>
         <div className="flex gap-0 sm:gap-4 ">
           <Link className="scale-75 sm:scale-100" to={'/about'}>
-            <AwesomeButton type="primary">ABOUT</AwesomeButton>
+            <AwesomeButton type="primary">SHOP</AwesomeButton>
           </Link>
           <Link className="scale-75 sm:scale-100" to={'/'}>
             <AwesomeButton type="secondary">CART</AwesomeButton>

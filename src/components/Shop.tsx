@@ -1,14 +1,12 @@
 import Header from './Header';
+import AlbumCard from './AlbumCard';
 
 const Shop = () => {
   return (
     <>
       <Header />
       <div>
-        <h1>Shop</h1>
-        <p>
-          This is a placeholder for the shop page.
-        </p>
+        <AlbumCard />
       </div>
     </>
   );
