@@ -1,12 +1,19 @@
 import Header from './Header';
 import AlbumCard from './AlbumCard';
+import { useState } from 'react';
 
-const Shop = () => {
+const Shop = () => { // TODO album list props
+  const [albums, setAlbums] = useState([]);
+
+  // TODO 
+  // set the albums 
   return (
     <>
       <Header />
       <div>
-        <AlbumCard />
+        {albums.map((card) => {
+          <AlbumCard />
+        })}
       </div>
     </>
   );
