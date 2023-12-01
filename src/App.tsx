@@ -1,9 +1,11 @@
+
 import Header from './components/Header';
 import TextShadow from './components/TextShadow';
 import { color } from './consts/color';
 import './index.css';
 
 function App() {
+
   return (
     <>
       <Header />
