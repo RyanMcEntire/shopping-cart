@@ -10,7 +10,7 @@ const Header = () => {
           <AwesomeButton type="primary">HOME</AwesomeButton>
         </Link>
         <div className="flex gap-0 sm:gap-4 ">
-          <Link className="scale-75 sm:scale-100" to={'/about'}>
+          <Link className="scale-75 sm:scale-100" to={'/shop'}>
             <AwesomeButton type="primary">SHOP</AwesomeButton>
           </Link>
           <Link className="scale-75 sm:scale-100" to={'/'}>

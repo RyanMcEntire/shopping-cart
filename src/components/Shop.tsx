@@ -10,6 +10,7 @@ const Shop = () => { // TODO album list props
   return (
     <>
       <Header />
+      Shop
       <div>
         {albums.map((card) => {
           <AlbumCard />

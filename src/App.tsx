@@ -4,16 +4,26 @@ import { color } from './consts/color';
 import './index.css';
 import { useFetch } from './hooks/useFetch';
 
-const url = `https://api.discogs.com/lists/1410808 --user-agent "bassbook/0.1"`;
+const url = `/discogs/lists/1410808`;
 const fetchOptions: RequestInit = {
   mode: 'cors',
+  headers: {
+    'Authorization': `Discogs key=${
+  import.meta.env.VITE_API_KEY
+}, secret=${import.meta.env.VITE_API_SECRET}`,
+    'User-Agent': 'bassbook/0.1',
+  },
 };
+
 
 function App() {
   const { data, error } = useFetch(url, fetchOptions);
 
   if (error) return <p>There is an error: {error.message}</p>;
   if (!data) return <p>Loading...</p>;
+
+  console.log(data);
+
   return (
     <>
       <Header />

@@ -13,4 +13,13 @@ export default defineConfig({
     css: true,
     setupFiles: './src/test/setup.ts',
   },
+  server: {
+    proxy: {
+      '/discogs': {
+        target: 'https://api.discogs.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/discogs/, ''),
+      },
+    },
+  },
 });

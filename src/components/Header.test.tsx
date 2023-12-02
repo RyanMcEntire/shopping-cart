@@ -1,6 +1,5 @@
 import { describe } from 'vitest';
 import App from '../App';
-import About from './Shop';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
@@ -17,7 +16,7 @@ describe('Header component', () => {
     expect(screen.getByTitle('BASSBOOK')).toBeInTheDocument();
   });
 
-  it('navigates to About when you click SHOP', async () => {
+  it('navigates to Shop when you click SHOP', async () => {
     render(
       <MemoryRouter>
         <App />
@@ -25,9 +24,9 @@ describe('Header component', () => {
     );
     const user = userEvent.setup();
 
-    const aboutButton = screen.getByRole('link', { name: 'SHOP' });
+    const shopButton = screen.getByRole('link', { name: 'SHOP' });
 
-    await user.click(aboutButton);
+    await user.click(shopButton);
 
     expect(screen.getByText(/Shop/i)).toBeInTheDocument();
   });
