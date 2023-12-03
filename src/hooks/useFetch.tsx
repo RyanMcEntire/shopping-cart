@@ -12,12 +12,15 @@ type Action<T> =
   | { type: 'fetched'; payload: T }
   | { type: 'error'; payload: Error };
 
-export function useFetch<T = unknown>(
-  url?: string,
-  options?: RequestInit
-): State<T> {
+function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
   const cache = useRef<Cache<T>>({});
 
+  const loadCache = (): Cache<T> => {
+    const cacheData = localStorage.getItem('albumListApiCache');
+    return cacheData ? (JSON.parse(cacheData) as Cache<T>) : {};
+  };
+
+  cache.current = loadCache();
   const cancelRequest = useRef<boolean>(false);
 
   const initialState: State<T> = {
@@ -52,6 +55,7 @@ export function useFetch<T = unknown>(
         dispatch({ type: 'fetched', payload: cache.current[url] });
         return;
       }
+
       try {
         const response = await fetch(url, options);
         if (!response.ok) {
@@ -59,7 +63,13 @@ export function useFetch<T = unknown>(
         }
 
         const data = (await response.json()) as T;
+
         cache.current[url] = data;
+        localStorage.setItem(
+          'albumListApiCache',
+          JSON.stringify(cache.current)
+        );
+
         if (cancelRequest.current) return;
 
         dispatch({ type: 'fetched', payload: data });
@@ -75,8 +85,9 @@ export function useFetch<T = unknown>(
     return () => {
       cancelRequest.current = true;
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
+  }, [url, options]);
 
   return state;
 }
+
+export default useFetch;

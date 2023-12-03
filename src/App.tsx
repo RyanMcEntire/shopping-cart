@@ -1,20 +1,20 @@
 import Header from './components/Header';
 import TextShadow from './components/TextShadow';
 import { color } from './consts/color';
+import useFetch from './hooks/useFetch';
 import './index.css';
-import { useFetch } from './hooks/useFetch';
+
 
 const url = `/discogs/lists/1410808`;
 const fetchOptions: RequestInit = {
   mode: 'cors',
   headers: {
-    'Authorization': `Discogs key=${
-  import.meta.env.VITE_API_KEY
-}, secret=${import.meta.env.VITE_API_SECRET}`,
+    Authorization: `Discogs key=${import.meta.env.VITE_API_KEY}, secret=${
+      import.meta.env.VITE_API_SECRET
+    }`,
     'User-Agent': 'bassbook/0.1',
   },
 };
-
 
 function App() {
   const { data, error } = useFetch(url, fetchOptions);
