@@ -5,7 +5,7 @@ import useFetch from './hooks/useFetch';
 import './index.css';
 
 
-const url = `/discogs/lists/1410808`;
+const url = `https://api.discogs.com/users/ryanmcentire/collection/folders/0/releases`;
 const fetchOptions: RequestInit = {
   mode: 'cors',
   headers: {
