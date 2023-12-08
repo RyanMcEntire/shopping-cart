@@ -44,8 +44,10 @@ const Shop: React.FC = () => {
   return (
     <>
       <Header />
-      Shop
-      <div>
+          <div className='flex justify-center text-cream font-bold'>
+            <h1 className='text-3xl '>Featured Albums</h1>
+          </div>
+      <div className='flex flex-wrap'>
         {albums.map((album) => (
           <AlbumCard
             key={album.title}
