@@ -12,8 +12,13 @@ const Shop = () => { // TODO album list props
       <Header />
       Shop
       <div>
-        {albums.map((card) => {
-          <AlbumCard />
+        {albums.map((album) => {
+          <AlbumCard 
+          key={album.id}
+          albumName={album.albumName}
+          artistName={album.artistName}
+          albumPicture={album.albumPicture}
+          />
         })}
       </div>
     </>
