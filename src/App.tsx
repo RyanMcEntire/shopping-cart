@@ -7,31 +7,31 @@ import './index.css';
 import { useEffect } from 'react';
 import { ApiData } from './consts/apiTypes';
 
-const url = `https://api.discogs.com/users/ryanmcentire/collection/folders/0/releases`;
-const fetchOptions: RequestInit = {
-  mode: 'cors',
-  headers: {
-    Authorization: `Discogs key=${import.meta.env.VITE_API_KEY}, secret=${
-      import.meta.env.VITE_API_SECRET
-    }`,
-    'User-Agent': 'bassbook/0.1',
-  },
-};
+// const url = `https://api.discogs.com/users/ryanmcentire/collection/folders/0/releases`;
+// const fetchOptions: RequestInit = {
+//   mode: 'cors',
+//   headers: {
+//     Authorization: `Discogs key=${import.meta.env.VITE_API_KEY}, secret=${
+//       import.meta.env.VITE_API_SECRET
+//     }`,
+//     'User-Agent': 'bassbook/0.1',
+//   },
+// };
 
 function App() {
-  const [data, setData] = usePersistedState<ApiData | null>('dataKey', null);
-  const fetchResult = useFetch<ApiData>(url, fetchOptions);
+//   const [data, setData] = usePersistedState<ApiData | null>('dataKey', null);
+//   const fetchResult = useFetch<ApiData>(url, fetchOptions);
 
-  useEffect(() => {
-    if (fetchResult.data) {
-      setData(fetchResult.data);
-    }
-  }, [fetchResult.data, setData]);
+//   useEffect(() => {
+//     if (fetchResult.data) {
+//       setData(fetchResult.data);
+//     }
+//   }, [fetchResult.data, setData]);
 
-  if (fetchResult.error) return <p>There is an error: {fetchResult.error.message}</p>;
-  if (!data) return <p>Loading...</p>;
+//   if (fetchResult.error) return <p>There is an error: {fetchResult.error.message}</p>;
+//   if (!data) return <p>Loading...</p>;
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <>

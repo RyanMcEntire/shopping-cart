@@ -56,3 +56,9 @@ export interface LabelsEntity {
   id: number;
   resource_url: string;
 }
+
+export interface Album {
+  title: string;
+  artistName: string;
+  coverImage: string;
+}
