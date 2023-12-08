@@ -1,15 +1,14 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { T } from 'vitest/dist/types-198fd1d9.js';
 
-function usePersistedState(
+function usePersistedState<T>(
   key: string,
   defaultValue: T
 ): [T, Dispatch<SetStateAction<T>>] {
-  const [state, setState] = useState(() => {
+  const [state, setState] = useState<T>(() => {
     const storedValue = localStorage.getItem(key);
     if (storedValue !== null) {
       try {
-        return JSON.parse(storedValue);
+        return JSON.parse(storedValue) as T;
       } catch (error) {
         console.error(`Error reading key "${key}" from localStorage:`, error);
         return defaultValue;

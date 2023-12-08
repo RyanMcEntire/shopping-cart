@@ -2,8 +2,10 @@ import Header from './components/Header';
 import TextShadow from './components/TextShadow';
 import { color } from './consts/color';
 import useFetch from './hooks/useFetch';
+import usePersistedState from './hooks/usePersistedState';
 import './index.css';
-
+import { useEffect } from 'react';
+import { ApiData } from './consts/apiTypes';
 
 const url = `https://api.discogs.com/users/ryanmcentire/collection/folders/0/releases`;
 const fetchOptions: RequestInit = {
@@ -17,9 +19,16 @@ const fetchOptions: RequestInit = {
 };
 
 function App() {
-  const { data, error } = useFetch(url, fetchOptions);
+  const [data, setData] = usePersistedState<ApiData | null>('dataKey', null);
+  const fetchResult = useFetch<ApiData>(url, fetchOptions);
 
-  if (error) return <p>There is an error: {error.message}</p>;
+  useEffect(() => {
+    if (fetchResult.data) {
+      setData(fetchResult.data);
+    }
+  }, [fetchResult.data, setData]);
+
+  if (fetchResult.error) return <p>There is an error: {fetchResult.error.message}</p>;
   if (!data) return <p>Loading...</p>;
 
   console.log(data);
