@@ -45,7 +45,7 @@ const Shop: React.FC = () => {
     <div className=''>
       <Header />
           <div className='mt-3 flex justify-center text-cream font-bold'>
-            <h1 className='text-3xl '>Featured Albums</h1>
+            <h1 className='text-5xl '>Featured Albums</h1>
           </div>
       <div className='flex flex-wrap justify-center'>
         {albums.map((album) => (
