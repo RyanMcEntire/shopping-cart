@@ -42,12 +42,12 @@ const Shop: React.FC = () => {
     return <p>There is an error: {fetchResult.error.message}</p>;
   if (!albums || albums.length === 0) return <p>Loading...</p>;
   return (
-    <div className=''>
+    <div className="">
       <Header />
-          <div className='mt-3 flex justify-center text-cream font-bold'>
-            <h1 className='text-5xl '>Featured Albums</h1>
-          </div>
-      <div className='flex flex-wrap justify-center'>
+      <div className="mt-3 flex justify-center text-cream ">
+        <h1 className="text-5xl font-extrabold font-asap ">featured albums</h1>
+      </div>
+      <div className="flex flex-wrap justify-center max-w-6xl m-auto">
         {albums.map((album) => (
           <AlbumCard
             key={album.title}

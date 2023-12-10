@@ -4,13 +4,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ['"Orbitron"', 'sans-serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
+        asap: ['Asap', 'sans-serif'],
       },
       colors: {
         transparent: 'transparent',
         'water-blue': '#36B3E8',
         'bubblegum-pink': '#FF89D3',
-        'bubblegum-shadow': "#ba5996",
+        'bubblegum-shadow': '#ba5996',
         'medium-green': '#6ADB6B',
         'light-green': '#78EB9D',
         lilac: '#C38EFA',
