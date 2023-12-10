@@ -3,7 +3,7 @@ import App from '../App';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
-import { BrowserRouter, MemoryRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, } from 'react-router-dom';
 
 describe('Header component', () => {
   it('navigates home when you click HOME', async () => {

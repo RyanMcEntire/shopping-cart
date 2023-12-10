@@ -1,37 +1,9 @@
 import Header from './components/Header';
 import TextShadow from './components/TextShadow';
 import { color } from './consts/color';
-import useFetch from './hooks/useFetch';
-import usePersistedState from './hooks/usePersistedState';
 import './index.css';
-import { useEffect } from 'react';
-import { ApiData } from './consts/apiTypes';
-
-// const url = `https://api.discogs.com/users/ryanmcentire/collection/folders/0/releases`;
-// const fetchOptions: RequestInit = {
-//   mode: 'cors',
-//   headers: {
-//     Authorization: `Discogs key=${import.meta.env.VITE_API_KEY}, secret=${
-//       import.meta.env.VITE_API_SECRET
-//     }`,
-//     'User-Agent': 'bassbook/0.1',
-//   },
-// };
 
 function App() {
-//   const [data, setData] = usePersistedState<ApiData | null>('dataKey', null);
-//   const fetchResult = useFetch<ApiData>(url, fetchOptions);
-
-//   useEffect(() => {
-//     if (fetchResult.data) {
-//       setData(fetchResult.data);
-//     }
-//   }, [fetchResult.data, setData]);
-
-//   if (fetchResult.error) return <p>There is an error: {fetchResult.error.message}</p>;
-//   if (!data) return <p>Loading...</p>;
-
-  // console.log(data);
 
   return (
     <>
