@@ -23,11 +23,12 @@ export const youtubeUrls = {
   'Moe Shop - Moe Moe': 'https://youtu.be/F9Ay74LfKd4?si=7VxAa3Ii9rBsM2BJ',
   'Mameyudoufu - Showcase': 'https://youtu.be/-Ffv8L8QDA4?si=NVxSGlTV7lYrv2IJ',
   'Such (3) - Innocent': 'https://youtu.be/lCY92xb5CuY?si=YdyMxsrykqlpeYP4',
-  "Yuc'e - Sugary Galaxy": 'https://youtu.be/rBRaYxaBNVU?si=v_1IM56TfP0fXvCK',
+  'Tomggg - Butter Sugar Cream':
+    'https://youtu.be/HZOEHquT12g?si=iOyQmvR73qzp3lBV',
   'Yunomi (2) - ゆのもきゅ': 'https://youtu.be/I7-EWVVWFa8?si=Q1DCyvkHSjpA6Eqj',
   'Dark Cat - Finite ': 'https://youtu.be/y69QZxO4G2s?si=wvg8qjb_IafMt897',
-  'Tanuki - 漢字・タイトル / カタカナ・タイトル = Kanji Title / Katakana Title':
-    'https://youtu.be/uthfuVYdJV4?si=HZE8rpV-vDxHWtYx',
+  'Tanuki - Kanji Title = 漢字タイトル':
+    'https://www.youtube.com/watch?v=l7CgcC4TadA',
   'Happy Kuru Kuru - Happy Kuru Kuru':
     'https://www.youtube.com/watch?v=cR5gOQ3aREo',
   'Psyqui - Your Voice So...':

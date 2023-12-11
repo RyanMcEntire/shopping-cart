@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 .env
+collectionApiExample.json
+releaseApiExample.json
+
 
 # Editor directories and files
 .vscode/*
