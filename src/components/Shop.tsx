@@ -22,20 +22,22 @@ const Shop: React.FC = () => {
 
   useEffect(() => {
     if (fetchResult.data && fetchResult.data.releases) {
-      const formattedAlbums: Album[] = fetchResult.data.releases.map((release) => {
-        const artistNames = release.basic_information.artists
-          ? release.basic_information.artists
-              .map((artist) => artist.name)
-              .join(', ')
-          : 'Unknown Artist';
+      const formattedAlbums: Album[] = fetchResult.data.releases.map(
+        (release) => {
+          const artistNames = release.basic_information.artists
+            ? release.basic_information.artists
+                .map((artist) => artist.name)
+                .join(', ')
+            : 'Unknown Artist';
 
-        return {
-          id: release.id,
-          title: release.basic_information.title,
-          artistName: artistNames,
-          coverImage: release.basic_information.cover_image,
-        };
-      });
+          return {
+            id: release.id,
+            title: release.basic_information.title,
+            artistName: artistNames,
+            coverImage: release.basic_information.cover_image,
+          };
+        }
+      );
       setAlbums(formattedAlbums);
     }
   }, [fetchResult.data, setAlbums]);
@@ -51,9 +53,10 @@ const Shop: React.FC = () => {
       </div>
       <div className="flex flex-wrap justify-center max-w-6xl m-auto">
         {albums.map((album) => (
+          
           <Link
             key={album.title}
-            to={`/album/${encodeURIComponent(album.title)}`}
+            to={`/album/${album.id}`}
           >
             <AlbumCard
               key={album.title}

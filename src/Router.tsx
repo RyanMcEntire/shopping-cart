@@ -15,7 +15,7 @@ const Router: React.FC = () => {
      const albumList: Album[] = cachedData ? JSON.parse(cachedData) : [];
 
      const dynamicRoutes = albumList.map((album) => ({
-       path: `/album/${encodeURIComponent(album.title)}`,
+       path: `/album/${album.id}`,
        element: <AlbumPage album={album} />,
      }));
 
