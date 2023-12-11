@@ -4,6 +4,7 @@ import usePersistedState from '../hooks/usePersistedState';
 import { ApiData, Album } from '../consts/apiTypes';
 import Header from './Header';
 import AlbumCard from './AlbumCard';
+import { Link } from 'react-router-dom';
 
 const url = `/discogs/users/ryanmcentire/collection/folders/0/releases`;
 const fetchOptions: RequestInit = {
@@ -21,7 +22,7 @@ const Shop: React.FC = () => {
 
   useEffect(() => {
     if (fetchResult.data && fetchResult.data.releases) {
-      const formattedAlbums = fetchResult.data.releases.map((release) => {
+      const formattedAlbums: Album[] = fetchResult.data.releases.map((release) => {
         const artistNames = release.basic_information.artists
           ? release.basic_information.artists
               .map((artist) => artist.name)
@@ -29,6 +30,7 @@ const Shop: React.FC = () => {
           : 'Unknown Artist';
 
         return {
+          id: release.id,
           title: release.basic_information.title,
           artistName: artistNames,
           coverImage: release.basic_information.cover_image,
@@ -49,12 +51,17 @@ const Shop: React.FC = () => {
       </div>
       <div className="flex flex-wrap justify-center max-w-6xl m-auto">
         {albums.map((album) => (
-          <AlbumCard
+          <Link
             key={album.title}
-            albumName={album.title}
-            artistName={album.artistName}
-            albumPicture={album.coverImage}
-          />
+            to={`/album/${encodeURIComponent(album.title)}`}
+          >
+            <AlbumCard
+              key={album.title}
+              albumName={album.title}
+              artistName={album.artistName}
+              albumPicture={album.coverImage}
+            />
+          </Link>
         ))}
       </div>
     </div>

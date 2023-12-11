@@ -58,6 +58,7 @@ export interface LabelsEntity {
 }
 
 export interface Album {
+  id?: number;
   title: string;
   artistName: string;
   coverImage: string;
