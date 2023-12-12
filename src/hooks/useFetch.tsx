@@ -16,7 +16,7 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
   const cache = useRef<Cache<T>>({});
 
   const loadCache = (): Cache<T> => {
-    const cacheData = localStorage.getItem('albumListApiCache');
+    const cacheData = localStorage.getItem('apiCache');
     return cacheData ? (JSON.parse(cacheData) as Cache<T>) : {};
   };
 
@@ -66,7 +66,7 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
 
         cache.current[url] = data;
         localStorage.setItem(
-          'albumListApiCache',
+          'apiCache',
           JSON.stringify(cache.current)
         );
 

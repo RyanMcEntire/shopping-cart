@@ -1,4 +1,4 @@
-export interface release {
+export interface ReleaseApiData {
   id: number;
   status: string;
   year: number;

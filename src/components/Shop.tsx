@@ -53,7 +53,7 @@ const Shop: React.FC = () => {
       </div>
       <div className="flex flex-wrap justify-center max-w-6xl m-auto">
         {albums.map((album) => (
-          <Link key={album.title} to={`/album/${album.id}`}>
+          <Link key={album.id} to={`/album/${album.id}`}>
             <AlbumCard
               key={album.title}
               albumName={album.title}
