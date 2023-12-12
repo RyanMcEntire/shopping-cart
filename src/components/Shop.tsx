@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import useFetch from '../hooks/useFetch';
 import usePersistedState from '../hooks/usePersistedState';
-import { ApiData, Album } from '../consts/apiTypes';
+import { ApiData, Album } from '../consts/collectionApiTypes';
 import Header from './Header';
 import AlbumCard from './AlbumCard';
 import { Link } from 'react-router-dom';
@@ -53,11 +53,7 @@ const Shop: React.FC = () => {
       </div>
       <div className="flex flex-wrap justify-center max-w-6xl m-auto">
         {albums.map((album) => (
-          
-          <Link
-            key={album.title}
-            to={`/album/${album.id}`}
-          >
+          <Link key={album.title} to={`/album/${album.id}`}>
             <AlbumCard
               key={album.title}
               albumName={album.title}
