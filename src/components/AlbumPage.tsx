@@ -3,6 +3,8 @@ import Header from './Header';
 import { Release, ReleaseApiData } from '../consts/releaseApiTypes';
 import useFetch from '../hooks/useFetch';
 import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AwesomeButton } from 'react-awesome-button';
 
 interface AlbumPageProps {
   album: Album;
@@ -11,6 +13,7 @@ interface AlbumPageProps {
 const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   const url = useMemo(() => `/discogs/releases/${album.id}`, [album.id]);
   const [release, setRelease] = useState<Release | null>(null);
+  const navigate = useNavigate();
   const fetchOptions: RequestInit = useMemo(
     () => ({
       mode: 'cors',
@@ -90,10 +93,11 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   return (
     <>
       <Header />
+      <AwesomeButton className='h-12 w-20 m-4' type='secondary' onPress={() => navigate(-1)}>back</AwesomeButton>
       <div>
         <h1>{release.title}</h1>
-        <p>{album.artistName}</p>
-        <img src={album.coverImage} alt={`Cover of ${album.title}`} />
+        <p>{release.artist_name}</p>
+        <img src={release.album_art} alt={`Cover of ${album.title}`} />
       </div>
     </>
   );
