@@ -85,3 +85,23 @@ export interface ImagesEntity {
   width: number;
   height: number;
 }
+
+export interface Release {
+  id: number;
+  title: string;
+  artist_name: string;
+  label: string;
+  format: string;
+  release_date: string;
+  genre: string;
+  style: string;
+  track_list: Track[];
+  album_art: string;
+}
+
+export interface Track {
+  position: number;
+  type_: string;
+  title: string;
+  duration: string;
+}

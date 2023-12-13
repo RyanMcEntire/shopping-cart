@@ -1,8 +1,8 @@
 import { Album } from '../consts/collectionApiTypes';
 import Header from './Header';
-import { ReleaseApiData } from '../consts/releaseApiTypes';
+import { Release, ReleaseApiData } from '../consts/releaseApiTypes';
 import useFetch from '../hooks/useFetch';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 interface AlbumPageProps {
   album: Album;
@@ -10,6 +10,7 @@ interface AlbumPageProps {
 
 const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   const url = useMemo(() => `/discogs/releases/${album.id}`, [album.id]);
+  const [release, setRelease] = useState<Release | null>(null);
   const fetchOptions: RequestInit = useMemo(
     () => ({
       mode: 'cors',
@@ -27,13 +28,60 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
 
   useEffect(() => {
     if (fetchResult.data) {
-      console.log(fetchResult.data);
-      // TODO: define info shape of useful data here and don't do it in JSX
+      const albumRelease = fetchResult.data;
 
+      const artistNames = albumRelease.artists
+        ? albumRelease.artists
+            .map((artist) => artist.name.replace(/\(\d\)/g, '').trim())
+            .join(', ')
+        : 'Unknown Artist';
+      const labels = albumRelease.labels
+        ? albumRelease.labels
+            .map((label) => label.name.replace(/\(\d\)/g, '').trim())
+            .join(', ')
+        : 'Unknown Label';
+      const formats = albumRelease.formats
+        ? albumRelease.formats
+            .map((format) =>
+              format.descriptions
+                ? format.descriptions.join(', ')
+                : 'Unknown Description'
+            )
+            .join(', ')
+        : 'Unknown Format';
+      const genres = albumRelease.genres
+        ? albumRelease.genres.join(', ')
+        : 'Unknown Genre';
+      const styles = albumRelease.styles
+        ? albumRelease.styles.join(', ')
+        : 'Unknown Style';
+      const albumTracklist = albumRelease.tracklist
+        ? albumRelease.tracklist.map((track) => ({
+            position: parseInt(track.position),
+            type_: track.type_,
+            title: track.title,
+            duration: track.duration,
+          }))
+        : [];
+
+      const formattedRelease: Release = {
+        id: albumRelease.id,
+        title: albumRelease.title,
+        artist_name: artistNames,
+        label: labels,
+        format: formats,
+        release_date: albumRelease.released_formatted,
+        genre: genres,
+        style: styles,
+        track_list: albumTracklist,
+        album_art: albumRelease.images?.[0]?.resource_url || 'image not found',
+      };
+
+      setRelease(formattedRelease);
+      console.log(fetchResult.data);
+      console.log(formattedRelease);
     }
   }, [fetchResult.data]);
-
-  const release = fetchResult.data;
 
   if (fetchResult.error)
     return <p>Album page Error: {fetchResult.error.message}</p>;
