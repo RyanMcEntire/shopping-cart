@@ -93,11 +93,35 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   return (
     <>
       <Header />
-      <AwesomeButton className='h-12 w-20 m-4' type='secondary' onPress={() => navigate(-1)}>back</AwesomeButton>
-      <div>
-        <h1>{release.title}</h1>
-        <p>{release.artist_name}</p>
-        <img src={release.album_art} alt={`Cover of ${album.title}`} />
+      <div className="max-w-6xl m-auto">
+        <div className="m-4">
+          <AwesomeButton
+            className="h-12 w-20 m-4"
+            type="secondary"
+            onPress={() => navigate(-1)}
+          >
+            back
+          </AwesomeButton>
+        </div>
+
+        <div className="flex flex-col m-8 md:flex-row-reverse">
+          <div>
+            <img
+              className="m-2 max-w-xs"
+              src={release.album_art}
+              alt={`Cover of ${album.title}`}
+            />
+          </div>
+          <div>
+            <h1 className="font-bold text-3xl">{release.title}</h1>
+            <p>by {release.artist_name}</p>
+            <p>Released {release.release_date}</p>
+            <p>Genre: {release.genre}</p>
+            <p>Style: {release.style}</p>
+            <p>Release Format: {release.format}</p>
+            <p>Release Label: {release.label}</p>
+          </div>
+        </div>
       </div>
     </>
   );
