@@ -107,7 +107,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
         <div className="flex flex-col m-8 sm:flex-row-reverse justify-center">
           <div>
             <img
-              className="m-2 max-w-xs"
+              className="m-2"
               src={release.album_art}
               alt={`Cover of ${album.title}`}
             />

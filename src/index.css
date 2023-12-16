@@ -18,31 +18,39 @@
 }
 
 .aws-btn {
-
---button-default-height: 60px;
---button-default-font-size: 23px;
---button-default-border-radius: 25px;
---button-horizontal-padding: 28px;
---button-raise-level: 10px;
---button-hover-pressure: 1.5;
---transform-speed: 0.15s;
---button-primary-color: #36b3e8;
---button-primary-color-dark: #ccc738;
---button-primary-color-light: #fefbea;
---button-primary-color-hover: #2898c8;
---button-primary-border: 4px solid #fbf845;
---button-secondary-color: #ae7ae6;
---button-secondary-color-dark: #ccc738;
---button-secondary-color-light: #fefbea;
---button-secondary-color-hover: #8f5ac4;
---button-secondary-border: 3px solid #ffe11d;
---button-anchor-color: #36b3e8;
---button-anchor-color-dark: #ae7ae6;
---button-anchor-color-light: #fefbea;
---button-anchor-color-hover: #2898c8;
---button-anchor-border: 3px solid #c88efa;
+  --button-default-height: 60px;
+  --button-default-font-size: 23px;
+  --button-default-border-radius: 25px;
+  --button-horizontal-padding: 28px;
+  --button-raise-level: 10px;
+  --button-hover-pressure: 1.5;
+  --transform-speed: 0.15s;
+  --button-primary-color: #36b3e8;
+  --button-primary-color-dark: #ccc738;
+  --button-primary-color-light: #fefbea;
+  --button-primary-color-hover: #2898c8;
+  --button-primary-border: 4px solid #fbf845;
+  --button-secondary-color: #ae7ae6;
+  --button-secondary-color-dark: #ccc738;
+  --button-secondary-color-light: #fefbea;
+  --button-secondary-color-hover: #8f5ac4;
+  --button-secondary-border: 3px solid #ffe11d;
+  --button-anchor-color: #36b3e8;
+  --button-anchor-color-dark: #ae7ae6;
+  --button-anchor-color-light: #fefbea;
+  --button-anchor-color-hover: #2898c8;
+  --button-anchor-border: 3px solid #c88efa;
 }
 
 body {
   background-color: #ff2745;
+}
+
+#root {
+padding: 0;
+margin: 0;
+}
+
+html, body {
+  overflow-x: hidden;
 }
