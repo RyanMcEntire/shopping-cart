@@ -7,7 +7,7 @@ const Header = () => {
     <div className="border-b-4 border-bubblegum-shadow bg-bubblegum-pink">
       <div className="flex justify-between sm:p-4 max-w-6xl m-auto">
         <div className=" flex  gap-0 sm:gap-4">
-          <div className="font-orbitron text-center text-cream text-6xl justify-between">
+          <div className="hidden sm:block font-orbitron text-center text-cream text-6xl justify-between">
             BB
           </div>
           <Link className="scale-75 sm:scale-100" to={'/'}>

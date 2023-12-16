@@ -104,7 +104,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
           </AwesomeButton>
         </div>
 
-        <div className="flex flex-col m-8 md:flex-row-reverse">
+        <div className="flex flex-col m-8 sm:flex-row-reverse justify-center">
           <div>
             <img
               className="m-2 max-w-xs"
