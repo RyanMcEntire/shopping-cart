@@ -26,11 +26,13 @@ export const youtubeUrls = {
   'Butter Sugar Cream':
     'https://www.youtube.com/embed/tIKeYgHN0xk?si=xghcSzSM6poMsFqn',
   ゆのもきゅ: 'https://www.youtube.com/embed/I7-EWVVWFa8?si=Q1DCyvkHSjpA6Eqj',
-  'Finite ': 'https://www.youtube.com/embed/y69QZxO4G2s?si=wvg8qjb_IafMt897',
-  'Kanji Title = 漢字タイトル':
-    'https://www.youtube.com/embed/Tobay3f4TPs?si=T5ZCP8iLbLd1YHJ-',
+  Finite: 'https://www.youtube.com/embed/y69QZxO4G2s?si=wvg8qjb_IafMt897',
+  'Digital Native':
+    'https://www.youtube.com/embed/li9HzwIOSm0?si=UyavI7z3tfvCutrE',
   'Happy Kuru Kuru':
     'https://www.youtube.com/embed/cR5gOQ3aREo?si=cbxxQp2TT08WTfKG',
   'Your Voice So...':
     'https://www.youtube.com/embed/3Qsw0lQZduA?si=1DCaqzXbfS_5jLqD',
+  'ハローニュージェネレーション (Hello New Generation)':
+    'https://www.youtube.com/embed/PGPH9SbFY4g?si=62DbKAKWbC6XLi-U',
 };
