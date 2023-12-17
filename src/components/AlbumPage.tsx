@@ -12,7 +12,8 @@ interface AlbumPageProps {
 }
 
 const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
-  const url = useMemo(() => `/discogs/releases/${album.id}`, [album.id]);
+  const baseUrl = import.meta.env.PROD ? 'https://api.discogs.com' : '/discogs';
+  const url = useMemo(() => `${baseUrl}/releases/${album.id}`, [album.id]);
   const [release, setRelease] = useState<Release | null>(null);
   const navigate = useNavigate();
   const fetchOptions: RequestInit = useMemo(
