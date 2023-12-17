@@ -15,6 +15,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   const baseUrl = import.meta.env.PROD ? 'https://api.discogs.com' : '/discogs';
   const url = useMemo(() => `${baseUrl}/releases/${album.id}`, [album.id]);
   const [release, setRelease] = useState<Release | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const navigate = useNavigate();
   const fetchOptions: RequestInit = useMemo(
     () => ({
@@ -85,11 +86,14 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
       setRelease(formattedRelease);
       console.log(fetchResult.data);
       console.log(formattedRelease);
+    } else if (fetchResult.error) {
+      setErrorMessage('Failed to load album details. Please try again later.');
     }
-  }, [fetchResult.data]);
+  }, [fetchResult.data, fetchResult.error]);
 
-  if (fetchResult.error)
-    return <p>Album page Error: {fetchResult.error.message}</p>;
+  if (errorMessage) {
+    return <p>Error: {errorMessage}</p>;
+  }
   if (!release) return <p>Loading album details...</p>;
 
   return (
@@ -156,7 +160,9 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
                       {track.title}
                     </h3>
 
-                    {track.duration && (<span className=" drop-shadow-md shrink-0">{` - ${track.duration}`}</span>)}
+                    {track.duration && (
+                      <span className=" drop-shadow-md shrink-0">{` - ${track.duration}`}</span>
+                    )}
                   </div>
 
                   <div className="my-1 border-b border-pale-muave"></div>
