@@ -20,17 +20,17 @@
 // };
 
 export const youtubeUrls = {
-  'Moe Shop - Moe Moe': 'https://youtu.be/F9Ay74LfKd4?si=7VxAa3Ii9rBsM2BJ',
-  'Mameyudoufu - Showcase': 'https://youtu.be/-Ffv8L8QDA4?si=NVxSGlTV7lYrv2IJ',
-  'Such (3) - Innocent': 'https://youtu.be/lCY92xb5CuY?si=YdyMxsrykqlpeYP4',
-  'Tomggg - Butter Sugar Cream':
-    'https://youtu.be/HZOEHquT12g?si=iOyQmvR73qzp3lBV',
-  'Yunomi (2) - ゆのもきゅ': 'https://youtu.be/I7-EWVVWFa8?si=Q1DCyvkHSjpA6Eqj',
-  'Dark Cat - Finite ': 'https://youtu.be/y69QZxO4G2s?si=wvg8qjb_IafMt897',
-  'Tanuki - Kanji Title = 漢字タイトル':
-    'https://www.youtube.com/watch?v=l7CgcC4TadA',
-  'Happy Kuru Kuru - Happy Kuru Kuru':
-    'https://www.youtube.com/watch?v=cR5gOQ3aREo',
-  'Psyqui - Your Voice So...':
-    'https://youtu.be/3Qsw0lQZduA?si=1DCaqzXbfS_5jLqD',
+  'Moe Moe': 'https://www.youtube.com/embed/0nV_BH6U5nk?si=BwMK1p94EpMuz3Lb',
+  Showcase: 'https://www.youtube.com/embed/-Ffv8L8QDA4?si=NVxSGlTV7lYrv2IJ',
+  Innocent: 'https://www.youtube.com/embed/lCY92xb5CuY?si=YdyMxsrykqlpeYP4',
+  'Butter Sugar Cream':
+    'https://www.youtube.com/embed/tIKeYgHN0xk?si=xghcSzSM6poMsFqn',
+  ゆのもきゅ: 'https://www.youtube.com/embed/I7-EWVVWFa8?si=Q1DCyvkHSjpA6Eqj',
+  'Finite ': 'https://www.youtube.com/embed/y69QZxO4G2s?si=wvg8qjb_IafMt897',
+  'Kanji Title = 漢字タイトル':
+    'https://www.youtube.com/embed/Tobay3f4TPs?si=T5ZCP8iLbLd1YHJ-',
+  'Happy Kuru Kuru':
+    'https://www.youtube.com/embed/cR5gOQ3aREo?si=cbxxQp2TT08WTfKG',
+  'Your Voice So...':
+    'https://www.youtube.com/embed/3Qsw0lQZduA?si=1DCaqzXbfS_5jLqD',
 };

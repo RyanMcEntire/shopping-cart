@@ -5,6 +5,7 @@ import useFetch from '../hooks/useFetch';
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AwesomeButton } from 'react-awesome-button';
+import { youtubeUrls } from '../consts/albumData';
 
 interface AlbumPageProps {
   album: Album;
@@ -96,7 +97,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
       <div className="max-w-6xl m-auto">
         <div className="m-4">
           <AwesomeButton
-            className="h-12 w-20 m-4"
+            className="h-12 w-20 m-1"
             type="secondary"
             onPress={() => navigate(-1)}
           >
@@ -104,41 +105,60 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
           </AwesomeButton>
         </div>
 
-        <div className="flex flex-col m-8 md:flex-row-reverse justify-center gap-6">
-          <div>
+        <div className="flex flex-col m-6 md:flex-row-reverse justify-center gap-4">
+          <div className="flex flex-col gap-4">
             <img
               className="m-2 rounded-2xl"
               src={release.album_art}
               alt={`Cover of ${album.title}`}
             />
+            <iframe
+              className="m-2 aspect-video rounded-xl"
+              src={youtubeUrls[release.title as keyof typeof youtubeUrls]}
+            ></iframe>
           </div>
-          <div className="font-asap bg-water-blue rounded-xl p-4 text-cream">
-            <div className='p-2'>
-              <h1 className="font-bold text-4xl font-orbitron">
+          <div className="font-asap bg-water-blue rounded-xl p-4 m-2 text-cream ">
+            <div className="p-2">
+              <h1 className="font-bold text-4xl font-orbitron drop-shadow-md">
                 {release.title}
               </h1>
-              <p className="mb-4">by {release.artist_name}</p>
+              <p className="mb-4  drop-shadow-md">by {release.artist_name}</p>
             </div>
-            <div className="bg-pale-muave text-lg rounded-lg p-4 text-slate-600">
-              <p>Released: {release.release_date}</p>
-              <p>Genre: {release.genre}</p>
-              <p>Style: {release.style}</p>
-              <p>Release Format: {release.format}</p>
-              <p>Release Label: {release.label}</p>
+            <div className="bg-pale-muave text-lg rounded-lg p-4 text-slate-500">
+              <p>
+                Released:{' '}
+                <span className="text-slate-600">{release.release_date}</span>
+              </p>
+              <p>
+                Genre: <span className="text-slate-600">{release.genre}</span>
+              </p>
+              <p>
+                Style: <span className="text-slate-600">{release.style}</span>
+              </p>
+              <p>
+                Release Format:{' '}
+                <span className="text-slate-600">{release.format}</span>
+              </p>
+              <p>
+                Release Label:{' '}
+                <span className="text-slate-600">{release.label}</span>
+              </p>
             </div>
             <div className="mt-4">
               {release.track_list.map((track) => (
                 <div className="">
-                  <div className="flex">
-                    <h3>
-                      <span className="font-bold">
+                  <div className="flex justify-between gap-2">
+                    <h3 className=" drop-shadow-md text-xl">
+                      <span className=" drop-shadow-sm text-base bg-pale-muave text-slate-500 py-1 px-2 mr-1 rounded-full">
                         {track.type_} {track.position}{' '}
-                      </span>
-                      {` - ${track.title}`}
+                      </span>{' '}
+                      {track.title}
                     </h3>
+
+                    {track.duration && (<span className=" drop-shadow-md shrink-0">{` - ${track.duration}`}</span>)}
                   </div>
-                  <span>{track.duration}</span>
-                  <div className="my-4 border-b border-gray-300"></div>
+
+                  <div className="my-1 border-b border-pale-muave"></div>
                 </div>
               ))}
             </div>
