@@ -104,22 +104,44 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
           </AwesomeButton>
         </div>
 
-        <div className="flex flex-col m-8 sm:flex-row-reverse justify-center">
+        <div className="flex flex-col m-8 md:flex-row-reverse justify-center gap-6">
           <div>
             <img
-              className="m-2"
+              className="m-2 rounded-2xl"
               src={release.album_art}
               alt={`Cover of ${album.title}`}
             />
           </div>
-          <div>
-            <h1 className="font-bold text-3xl">{release.title}</h1>
-            <p>by {release.artist_name}</p>
-            <p>Released {release.release_date}</p>
-            <p>Genre: {release.genre}</p>
-            <p>Style: {release.style}</p>
-            <p>Release Format: {release.format}</p>
-            <p>Release Label: {release.label}</p>
+          <div className="font-asap bg-water-blue rounded-xl p-4 text-cream">
+            <div className='p-2'>
+              <h1 className="font-bold text-4xl font-orbitron">
+                {release.title}
+              </h1>
+              <p className="mb-4">by {release.artist_name}</p>
+            </div>
+            <div className="bg-pale-muave text-lg rounded-lg p-4 text-slate-600">
+              <p>Released: {release.release_date}</p>
+              <p>Genre: {release.genre}</p>
+              <p>Style: {release.style}</p>
+              <p>Release Format: {release.format}</p>
+              <p>Release Label: {release.label}</p>
+            </div>
+            <div className="mt-4">
+              {release.track_list.map((track) => (
+                <div className="">
+                  <div className="flex">
+                    <h3>
+                      <span className="font-bold">
+                        {track.type_} {track.position}{' '}
+                      </span>
+                      {` - ${track.title}`}
+                    </h3>
+                  </div>
+                  <span>{track.duration}</span>
+                  <div className="my-4 border-b border-gray-300"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
