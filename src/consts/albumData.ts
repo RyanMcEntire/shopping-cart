@@ -26,7 +26,7 @@ export const youtubeUrls = {
   'Butter Sugar Cream':
     'https://www.youtube.com/embed/tIKeYgHN0xk?si=xghcSzSM6poMsFqn',
   ゆのもきゅ: 'https://www.youtube.com/embed/I7-EWVVWFa8?si=Q1DCyvkHSjpA6Eqj',
-  Finite: 'https://www.youtube.com/embed/y69QZxO4G2s?si=wvg8qjb_IafMt897',
+  'Finite ': 'https://www.youtube.com/embed/y69QZxO4G2s?si=wvg8qjb_IafMt897',
   'Digital Native':
     'https://www.youtube.com/embed/li9HzwIOSm0?si=UyavI7z3tfvCutrE',
   'Happy Kuru Kuru':

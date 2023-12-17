@@ -102,7 +102,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
       <div className="max-w-6xl m-auto">
         <div className="m-4">
           <AwesomeButton
-            className="h-12 w-20 m-1"
+            className="scale-75 sm:scale-100 h-12 w-20 m-1"
             type="secondary"
             onPress={() => navigate(-1)}
           >
