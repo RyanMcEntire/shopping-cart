@@ -6,7 +6,8 @@ import Header from './Header';
 import AlbumCard from './AlbumCard';
 import { Link } from 'react-router-dom';
 
-const url = `/discogs/users/ryanmcentire/collection/folders/0/releases`;
+const baseUrl = import.meta.env.PROD ? 'https://api.discogs.com' : '/discogs';
+const url = `${baseUrl}/users/ryanmcentire/collection/folders/0/releases`;
 const fetchOptions: RequestInit = {
   mode: 'cors',
   headers: {
