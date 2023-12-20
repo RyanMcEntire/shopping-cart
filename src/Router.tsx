@@ -1,21 +1,18 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import Shop from './components/Shop';
 import AlbumPage from './components/AlbumPage';
+import { useAlbumData } from './components/AlbumDataContext';
 import { Album } from './consts/collectionApiTypes';
 
 const Router: React.FC = () => {
-  const [albumList, setAlbumList] = useState<Album[]>([]);
-
-  useEffect(() => {
-    const cachedData = localStorage.getItem('albumList');
-    const albums = cachedData ? JSON.parse(cachedData) : [];
-    setAlbumList(albums);
-  }, []); 
+  const albums = useAlbumData();
 
   const router = useMemo(() => {
-    const dynamicRoutes = albumList.map((album) => ({
+    const validAlbums = albums || [];
+
+    const dynamicRoutes = validAlbums.map((album: Album) => ({
       path: `/album/${album.id}`,
       element: <AlbumPage album={album} />,
     }));
@@ -31,7 +28,7 @@ const Router: React.FC = () => {
       },
       ...dynamicRoutes,
     ]);
-  }, [albumList]); 
+  }, [albums]);
 
   return <RouterProvider router={router} />;
 };
