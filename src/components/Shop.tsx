@@ -5,46 +5,48 @@ import { ApiData, Album } from '../consts/collectionApiTypes';
 import Header from './Header';
 import AlbumCard from './AlbumCard';
 import { Link } from 'react-router-dom';
+import { useAlbumData } from './AlbumDataContext';
 
-const baseUrl = import.meta.env.PROD ? 'https://api.discogs.com' : '/discogs';
-const url = `${baseUrl}/users/ryanmcentire/collection/folders/0/releases`;
-const fetchOptions: RequestInit = {
-  mode: 'cors',
-  headers: {
-    Authorization: `Discogs key=${import.meta.env.VITE_API_KEY}, secret=${
-      import.meta.env.VITE_API_SECRET
-    }`,
-    'User-Agent': 'bassbook/0.1',
-  },
-};
+// const baseUrl = import.meta.env.PROD ? 'https://api.discogs.com' : '/discogs';
+// const url = `${baseUrl}/users/ryanmcentire/collection/folders/0/releases`;
+// const fetchOptions: RequestInit = {
+//   mode: 'cors',
+//   headers: {
+//     Authorization: `Discogs key=${import.meta.env.VITE_API_KEY}, secret=${
+//       import.meta.env.VITE_API_SECRET
+//     }`,
+//     'User-Agent': 'bassbook/0.1',
+//   },
+// };
 const Shop: React.FC = () => {
-  const fetchResult = useFetch<ApiData>(url, fetchOptions);
-  const [albums, setAlbums] = usePersistedState<Album[]>('albumList', []);
+  const albums = useAlbumData();
+  // const fetchResult = useFetch<ApiData>(url, fetchOptions);
+  // const [albums, setAlbums] = usePersistedState<Album[]>('albumList', []);
 
-  useEffect(() => {
-    if (fetchResult.data && fetchResult.data.releases) {
-      const formattedAlbums: Album[] = fetchResult.data.releases.map(
-        (release) => {
-          const artistNames = release.basic_information.artists
-            ? release.basic_information.artists
-                .map((artist) => artist.name)
-                .join(', ')
-            : 'Unknown Artist';
+  // useEffect(() => {
+  //   if (fetchResult.data && fetchResult.data.releases) {
+  //     const formattedAlbums: Album[] = fetchResult.data.releases.map(
+  //       (release) => {
+  //         const artistNames = release.basic_information.artists
+  //           ? release.basic_information.artists
+  //               .map((artist) => artist.name)
+  //               .join(', ')
+  //           : 'Unknown Artist';
 
-          return {
-            id: release.id,
-            title: release.basic_information.title,
-            artistName: artistNames,
-            coverImage: release.basic_information.cover_image,
-          };
-        }
-      );
-      setAlbums(formattedAlbums);
-    }
-  }, [fetchResult.data, setAlbums]);
+  //         return {
+  //           id: release.id,
+  //           title: release.basic_information.title,
+  //           artistName: artistNames,
+  //           coverImage: release.basic_information.cover_image,
+  //         };
+  //       }
+  //     );
+  //     setAlbums(formattedAlbums);
+  //   }
+  // }, [fetchResult.data, setAlbums]);
 
-  if (fetchResult.error)
-    return <p>There is an error: {fetchResult.error.message}</p>;
+  // if (fetchResult.error)
+  //   return <p>There is an error: {fetchResult.error.message}</p>;
   if (!albums || albums.length === 0) return <p>Loading...</p>;
   return (
     <div className="">
