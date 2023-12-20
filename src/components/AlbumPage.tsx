@@ -99,7 +99,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   return (
     <>
       <Header />
-      <div className="max-w-6xl m-auto">
+      <div className="max-w-5xl m-auto">
         <div className="m-4">
           <AwesomeButton
             className="scale-75 sm:scale-100 h-12 w-20 m-1"
