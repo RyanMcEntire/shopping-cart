@@ -8,7 +8,7 @@ type CartItem = {
 interface CartContextType {
   cart: CartItem[];
   addToCart: (albumId: number, quantity: number) => void;
-  removeFromCart: (albumId: number) => void;
+  removeFromCart: (albumId: number, quantity: number) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -19,11 +19,30 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (albumId: number, quantity: number) => {
-    // TODO: implement add cart
+    if (cart.some((item) => item.albumId === albumId)) {
+      setCart(
+        cart.map((item) =>
+          item.albumId === albumId
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, { albumId, quantity }]);
+    }
   };
-
-  const removeFromCart = (albumId: number) => {
-    // TODO: implement remove from cart
+  const removeFromCart = (albumId: number, quantity: number) => {
+    if (cart.some((item) => item.albumId === albumId)) {
+      setCart(
+        cart.map((item) =>
+          item.albumId === albumId && item.quantity > 0
+            ? { ...item, quantity: item.quantity - quantity }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart]);
+    }
   };
 
   return (
