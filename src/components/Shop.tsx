@@ -1,12 +1,11 @@
-
 import Header from './Header';
 import AlbumCard from './AlbumCard';
 import { Link } from 'react-router-dom';
-import { useAlbumData } from './AlbumDataContext';
+import { useAlbumData } from '../context/AlbumDataContext';
 
 const Shop: React.FC = () => {
   const albums = useAlbumData();
- 
+
   if (!albums || albums.length === 0) return <p>Loading...</p>;
   return (
     <div className="">

@@ -18,7 +18,7 @@ const Header = () => {
           <Link className="scale-75 sm:scale-100" to={'/shop'}>
             <AwesomeButton type="primary">SHOP</AwesomeButton>
           </Link>
-          <Link className="scale-75 sm:scale-100" to={'/'}>
+          <Link className="scale-75 sm:scale-100" to={'/cart'}>
             <AwesomeButton type="secondary">CART</AwesomeButton>
           </Link>
         </div>

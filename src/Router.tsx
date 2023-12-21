@@ -3,8 +3,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import Shop from './components/Shop';
 import AlbumPage from './components/AlbumPage';
-import { useAlbumData } from './components/AlbumDataContext';
+import { useAlbumData } from './context/AlbumDataContext';
 import { Album } from './consts/collectionApiTypes';
+import Cart from './components/Cart';
 
 const Router: React.FC = () => {
   const albums = useAlbumData();
@@ -25,6 +26,10 @@ const Router: React.FC = () => {
       {
         path: 'shop',
         element: <Shop />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
       },
       ...dynamicRoutes,
     ]);
