@@ -117,7 +117,9 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
               src={release.album_art}
               alt={`Cover of ${album.title}`}
             />
-            <AwesomeButton className='mx-8' type="danger">ADD TO CART</AwesomeButton>
+            <AwesomeButton className="mx-8" type="danger">
+              ADD TO CART
+            </AwesomeButton>
             <iframe
               className="m-2 aspect-video rounded-xl"
               src={youtubeUrls[release.title as keyof typeof youtubeUrls]}
@@ -151,8 +153,11 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
               </p>
             </div>
             <div className="mt-4">
-              {release.track_list.map((track) => (
-                <div className="">
+              {release.track_list.map((track, index) => (
+                <div
+                  key={`${track.position}-${track.title}-${index}`}
+                  className=""
+                >
                   <div className="flex justify-between gap-2">
                     <h3 className=" drop-shadow-md text-xl">
                       <span className=" drop-shadow-sm text-base bg-pale-muave text-slate-500 py-1 px-2 mr-1 rounded-full">

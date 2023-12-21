@@ -59,7 +59,7 @@ export const AlbumDataProvider: React.FC<AlbumDataProviderProps> = ({
       );
       setAlbums(formattedAlbums);
     }
-  }, [fetchResult.data, setAlbums]);
+  }, [fetchResult, fetchResult.data, setAlbums]);
 
   return (
     <AlbumDataContext.Provider value={albums}>
