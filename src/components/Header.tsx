@@ -11,21 +11,15 @@ const Header = () => {
             BB
           </div>
           <Link className="scale-75 sm:scale-100" to={'/'}>
-            <AwesomeButton type="primary">
-              HOME
-            </AwesomeButton>
+            <AwesomeButton type="primary">HOME</AwesomeButton>
           </Link>
         </div>
         <div className="flex gap-0 sm:gap-4 ">
           <Link className="scale-75 sm:scale-100" to={'/shop'}>
-            <AwesomeButton  type="primary">
-              SHOP
-            </AwesomeButton>
+            <AwesomeButton type="primary">SHOP</AwesomeButton>
           </Link>
           <Link className="scale-75 sm:scale-100" to={'/'}>
-            <AwesomeButton type="secondary">
-              CART
-            </AwesomeButton>
+            <AwesomeButton type="secondary">CART</AwesomeButton>
           </Link>
         </div>
       </div>
