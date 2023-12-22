@@ -106,9 +106,9 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
     <>
       <Header />
       <div className="max-w-5xl m-auto">
-        <div className="m-4 flex justify-between">
+        <div className="flex justify-between m-4">
           <AwesomeButton
-            className="scale-75 sm:scale-100 h-12 w-20 m-1"
+            className="w-20 h-12 m-1 scale-75 sm:scale-100"
             type="secondary"
             onPress={() => navigate(-1)}
           >
@@ -116,7 +116,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
           </AwesomeButton>
         </div>
 
-        <div className="flex flex-col m-6 md:flex-row-reverse justify-center gap-4">
+        <div className="flex flex-col justify-center gap-4 m-6 md:flex-row-reverse">
           <div className="flex flex-col gap-4">
             <img
               className="m-2 rounded-2xl"
@@ -130,20 +130,20 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
             >
               ADD TO CART - ₿{release.price}
             </AwesomeButton>
-            
+
             <iframe
               className="m-2 aspect-video rounded-xl"
               src={youtubeUrls[release.title as keyof typeof youtubeUrls]}
             ></iframe>
           </div>
-          <div className="font-asap bg-water-blue rounded-xl p-4 m-2 text-cream ">
+          <div className="p-4 m-2 font-asap bg-water-blue rounded-xl text-cream ">
             <div className="p-2">
-              <h1 className="font-bold text-4xl font-orbitron drop-shadow-md">
+              <h1 className="text-4xl font-bold font-orbitron drop-shadow-md">
                 {release.title}
               </h1>
-              <p className="mb-4  drop-shadow-md">by {release.artist_name}</p>
+              <p className="mb-4 drop-shadow-md">by {release.artist_name}</p>
             </div>
-            <div className="bg-pale-muave text-lg rounded-lg p-4 text-slate-500">
+            <div className="p-4 text-lg rounded-lg bg-pale-muave text-slate-500">
               <p>
                 Released:{' '}
                 <span className="text-slate-600">{release.release_date}</span>
@@ -170,8 +170,8 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
                   className=""
                 >
                   <div className="flex justify-between gap-2">
-                    <h3 className=" drop-shadow-md text-xl">
-                      <span className=" drop-shadow-sm text-base bg-pale-muave text-slate-500 py-1 px-2 mr-1 rounded-full">
+                    <h3 className="text-xl drop-shadow-md">
+                      <span className="px-2 py-1 mr-1 text-base rounded-full drop-shadow-sm bg-pale-muave text-slate-500">
                         {track.type_} {track.position}{' '}
                       </span>{' '}
                       {track.title}

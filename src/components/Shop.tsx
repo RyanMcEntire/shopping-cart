@@ -10,7 +10,7 @@ const Shop: React.FC = () => {
   return (
     <div className="">
       <Header />
-      <div className="mt-3 flex justify-center text-cream ">
+      <div className="flex justify-center mt-3 text-cream ">
         <h1 className="text-5xl font-extrabold font-asap ">featured albums</h1>
       </div>
       <div className="flex flex-wrap justify-center max-w-6xl m-auto">
