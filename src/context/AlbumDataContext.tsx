@@ -54,6 +54,7 @@ export const AlbumDataProvider: React.FC<AlbumDataProviderProps> = ({
             title: release.basic_information.title,
             artistName: artistNames,
             coverImage: release.basic_information.cover_image,
+            
           };
         }
       );

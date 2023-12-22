@@ -97,6 +97,7 @@ export interface Release {
   style: string;
   track_list: Track[];
   album_art: string;
+  price: number;
 }
 
 export interface Track {

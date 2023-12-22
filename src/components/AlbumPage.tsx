@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AwesomeButton } from 'react-awesome-button';
 import { youtubeUrls } from '../consts/albumData';
+import { useCart } from '../context/CartContext';
 
 interface AlbumPageProps {
   album: Album;
@@ -13,10 +14,14 @@ interface AlbumPageProps {
 
 const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   const baseUrl = import.meta.env.PROD ? 'https://api.discogs.com' : '/discogs';
-  const url = useMemo(() => `${baseUrl}/releases/${album.id}`, [album.id]);
+  const url = useMemo(
+    () => `${baseUrl}/releases/${album.id}`,
+    [baseUrl, album.id]
+  );
   const [release, setRelease] = useState<Release | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>('');
   const navigate = useNavigate();
+  const { cart, getCartTotal, addToCart } = useCart();
   const fetchOptions: RequestInit = useMemo(
     () => ({
       mode: 'cors',
@@ -81,6 +86,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
         style: styles,
         track_list: albumTracklist,
         album_art: albumRelease.images?.[0]?.resource_url || 'image not found',
+        price: 99,
       };
 
       setRelease(formattedRelease);
@@ -115,11 +121,16 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
             <img
               className="m-2 rounded-2xl"
               src={release.album_art}
-              alt={`Cover of ${album.title}`}
+              alt={`Cover of ${release.title}`}
             />
-            <AwesomeButton className="mx-8" type="danger">
-              ADD TO CART
+            <AwesomeButton
+              onPress={() => addToCart(release.id)}
+              className="mx-8"
+              type="danger"
+            >
+              ADD TO CART - ₿{release.price}
             </AwesomeButton>
+            
             <iframe
               className="m-2 aspect-video rounded-xl"
               src={youtubeUrls[release.title as keyof typeof youtubeUrls]}
