@@ -62,4 +62,5 @@ export interface Album {
   title: string;
   artistName: string;
   coverImage: string;
+  thumbnail: string;
 }

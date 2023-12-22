@@ -15,7 +15,6 @@ type AlbumDataProviderProps = {
 
 const AlbumDataContext = createContext<Album[] | undefined>(undefined);
 
-
 export const AlbumDataProvider: React.FC<AlbumDataProviderProps> = ({
   children,
 }) => {
@@ -54,7 +53,7 @@ export const AlbumDataProvider: React.FC<AlbumDataProviderProps> = ({
             title: release.basic_information.title,
             artistName: artistNames,
             coverImage: release.basic_information.cover_image,
-            
+            thumbnail: release.basic_information.thumb,
           };
         }
       );

@@ -21,13 +21,14 @@ const Header = () => {
             <AwesomeButton type="primary">SHOP</AwesomeButton>
           </Link>
           <Link className="scale-75 sm:scale-100" to={'/cart'}>
-            {getCartTotal() > 0 ? (
-              <div className="absolute left-24 bottom-5 z-10 bg-strawberry p-1 rounded-e-2xl font-asap font-bold text-cream">
-                {getCartTotal()}
-              </div>
-            ) : null}
-
-            <AwesomeButton type="secondary">CART</AwesomeButton>
+            <AwesomeButton type="secondary">
+              CART {' '}
+              {getCartTotal() > 0 ? (
+                <div className=" bg-strawberry px-2 rounded-xl font-asap font-bold text-cream relative left-2">
+                  {getCartTotal()}
+                </div>
+              ) : null}
+            </AwesomeButton>
           </Link>
         </div>
       </div>

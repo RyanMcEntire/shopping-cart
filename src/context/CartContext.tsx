@@ -10,6 +10,7 @@ interface CartContextType {
   addToCart: (albumId: number) => void;
   removeFromCart: (albumId: number) => void;
   getCartTotal: () => number;
+  assignCartQuantity: (albumId: number, quantity: number) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -32,12 +33,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       setCart([...cart, { albumId, quantity: 1 }]);
     }
   };
+
   const removeFromCart = (albumId: number) => {
+    setCart(cart.filter((item) => item.albumId !== albumId));
+  };
+
+  const assignCartQuantity = (albumId: number, quantity: number) => {
     if (cart.some((item) => item.albumId === albumId)) {
       setCart(
         cart.map((item) =>
           item.albumId === albumId && item.quantity > 0
-            ? { ...item, quantity: item.quantity - 1 }
+            ? { ...item, quantity: Math.max(0, quantity) }
             : item
         )
       );
@@ -54,7 +60,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, getCartTotal }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        getCartTotal,
+        assignCartQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>
