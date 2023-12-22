@@ -6,6 +6,7 @@ import AlbumPage from './components/AlbumPage';
 import { useAlbumData } from './context/AlbumDataContext';
 import { Album } from './consts/collectionApiTypes';
 import Cart from './components/Cart';
+import Socials from './components/Socials';
 
 const Router: React.FC = () => {
   const albums = useAlbumData();
@@ -30,6 +31,10 @@ const Router: React.FC = () => {
       {
         path: 'cart',
         element: <Cart />,
+      },
+      {
+        path: 'socials',
+        element: <Socials />,
       },
       ...dynamicRoutes,
     ]);

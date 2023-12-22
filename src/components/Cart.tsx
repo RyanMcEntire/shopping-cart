@@ -1,10 +1,13 @@
 import { useCart } from "../context/CartContext";
 import { useAlbumData } from "../context/AlbumDataContext";
 import Header from "./Header";
+import { AwesomeButton } from "react-awesome-button";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, assignCartQuantity, getCartTotal, removeFromCart } = useCart();
+  const { cart, assignCartQuantity, getCartTotal, removeFromCart, clearCart } = useCart();
   const albums = useAlbumData();
+
 
   const handleQuantityChange = (albumId: number, value: string) => {
     const quantity = parseInt(value, 10);
@@ -12,6 +15,10 @@ const Cart = () => {
       assignCartQuantity(albumId, quantity);
     }
   };
+
+  const handleClearCart = () => {
+    clearCart();
+  }
 
   return (
     <>
@@ -64,7 +71,11 @@ const Cart = () => {
         <div className="flex place-self-center">
           Cart Total: ₿ {getCartTotal() * 99}
         </div>
+      <Link className="flex justify-center" to="/Socials">
+        <AwesomeButton onReleased={handleClearCart} type="danger">SPEND IT ALL</AwesomeButton>
+      </Link>
       </div>
+      
     </>
   );
 };

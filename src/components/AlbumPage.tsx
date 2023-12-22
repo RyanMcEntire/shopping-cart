@@ -21,7 +21,7 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ album }) => {
   const [release, setRelease] = useState<Release | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>('');
   const navigate = useNavigate();
-  const { cart, getCartTotal, addToCart } = useCart();
+  const { addToCart } = useCart();
   const fetchOptions: RequestInit = useMemo(
     () => ({
       mode: 'cors',
